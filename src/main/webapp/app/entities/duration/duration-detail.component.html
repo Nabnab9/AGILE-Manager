@@ -1,0 +1,40 @@
+
+<div *ngIf="duration">
+    <h2><span jhiTranslate="agileManagerApp.duration.detail.title">Duration</span> {{duration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="agileManagerApp.duration.estimated">Estimated</span></dt>
+        <dd>
+            <span>{{duration.estimated}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.duration.spent">Spent</span></dt>
+        <dd>
+            <span>{{duration.spent}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.duration.name">Name</span></dt>
+        <dd>
+            <span>{{duration.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.duration.task">Task</span></dt>
+        <dd>
+            <div *ngIf="duration.task">
+                <a [routerLink]="['/task', duration.task?.id]">{{duration.task?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'duration/'+ duration.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

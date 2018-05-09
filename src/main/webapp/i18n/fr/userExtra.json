@@ -1,0 +1,25 @@
+
+{
+    "agileManagerApp": {
+        "userExtra" : {
+            "home": {
+                "title": "UserExtras",
+                "createLabel": "Créer un nouveau User Extra",
+                "createOrEditLabel": "Créer ou éditer un User Extra"
+            },
+            "created": "Un nouveau User Extra a été créé avec l'identifiant {{ param }}",
+            "updated": "Le User Extra avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le User Extra avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le User Extra {{ id }} ?"
+            },
+            "detail": {
+                "title": "User Extra"
+            },
+            "description": "Description",
+            "user": "User",
+            "project": "Project",
+            "task": "Task"
+        }
+    }
+}

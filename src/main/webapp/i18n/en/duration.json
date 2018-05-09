@@ -1,0 +1,25 @@
+
+{
+    "agileManagerApp": {
+        "duration" : {
+            "home": {
+                "title": "Durations",
+                "createLabel": "Create a new Duration",
+                "createOrEditLabel": "Create or edit a Duration"
+            },
+            "created": "A new Duration is created with identifier {{ param }}",
+            "updated": "A Duration is updated with identifier {{ param }}",
+            "deleted": "A Duration is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Duration {{ id }}?"
+            },
+            "detail": {
+                "title": "Duration"
+            },
+            "estimated": "Estimated",
+            "spent": "Spent",
+            "name": "Name",
+            "task": "Task"
+        }
+    }
+}

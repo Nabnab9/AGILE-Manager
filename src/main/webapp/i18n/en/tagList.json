@@ -1,0 +1,24 @@
+
+{
+    "agileManagerApp": {
+        "tagList" : {
+            "home": {
+                "title": "Tag Lists",
+                "createLabel": "Create a new Tag List",
+                "createOrEditLabel": "Create or edit a Tag List"
+            },
+            "created": "A new Tag List is created with identifier {{ param }}",
+            "updated": "A Tag List is updated with identifier {{ param }}",
+            "deleted": "A Tag List is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tag List {{ id }}?"
+            },
+            "detail": {
+                "title": "Tag List"
+            },
+            "title": "Title",
+            "task": "Task",
+            "tag": "Tag"
+        }
+    }
+}

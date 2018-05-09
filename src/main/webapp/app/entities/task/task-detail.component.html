@@ -1,0 +1,46 @@
+
+<div *ngIf="task">
+    <h2><span jhiTranslate="agileManagerApp.task.detail.title">Task</span> {{task.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="agileManagerApp.task.title">Title</span></dt>
+        <dd>
+            <span>{{task.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.task.description">Description</span></dt>
+        <dd>
+            <span>{{task.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.task.order">Order</span></dt>
+        <dd>
+            <span>{{task.order}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.task.taskList">Task List</span></dt>
+        <dd>
+            <div *ngIf="task.taskList">
+                <a [routerLink]="['/task-list', task.taskList?.id]">{{task.taskList?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.task.userExtra">User Extra</span></dt>
+        <dd>
+            <span *ngFor="let userExtra of task.userExtras; let last = last">
+                <a [routerLink]="['/user-extra', userExtra?.id ]">{{userExtra.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'task/'+ task.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

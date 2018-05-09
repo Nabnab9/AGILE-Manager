@@ -1,0 +1,25 @@
+
+{
+    "agileManagerApp": {
+        "taskList" : {
+            "home": {
+                "title": "TaskLists",
+                "createLabel": "Créer un nouveau Task List",
+                "createOrEditLabel": "Créer ou éditer un Task List"
+            },
+            "created": "Un nouveau Task List a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Task List avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Task List avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Task List {{ id }} ?"
+            },
+            "detail": {
+                "title": "Task List"
+            },
+            "name": "Name",
+            "order": "Order",
+            "sprint": "Sprint",
+            "task": "Task"
+        }
+    }
+}

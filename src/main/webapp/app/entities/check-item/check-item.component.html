@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="agileManagerApp.checkItem.home.title">Check Items</span>
+        <button class="btn btn-primary float-right jh-create-entity create-check-item" [routerLink]="['/', { outlets: { popup: ['check-item-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="agileManagerApp.checkItem.home.createLabel">
+            Create new Check Item
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="checkItems">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="agileManagerApp.checkItem.label">Label</span></th>
+            <th><span jhiTranslate="agileManagerApp.checkItem.checked">Checked</span></th>
+            <th><span jhiTranslate="agileManagerApp.checkItem.checkList">Check List</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let checkItem of checkItems ;trackBy: trackId">
+                <td><a [routerLink]="['../check-item', checkItem.id ]">{{checkItem.id}}</a></td>
+                <td>{{checkItem.label}}</td>
+                <td>{{checkItem.checked}}</td>
+                <td>
+                    <div *ngIf="checkItem.checkList">
+                        <a [routerLink]="['../check-list', checkItem.checkList?.id ]" >{{checkItem.checkList?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../check-item', checkItem.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'check-item/'+ checkItem.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'check-item/'+ checkItem.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

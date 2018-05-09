@@ -1,0 +1,24 @@
+
+{
+    "agileManagerApp": {
+        "checkList" : {
+            "home": {
+                "title": "CheckLists",
+                "createLabel": "Créer un nouveau Check List",
+                "createOrEditLabel": "Créer ou éditer un Check List"
+            },
+            "created": "Un nouveau Check List a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Check List avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Check List avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Check List {{ id }} ?"
+            },
+            "detail": {
+                "title": "Check List"
+            },
+            "title": "Title",
+            "task": "Task",
+            "checkItem": "Check Item"
+        }
+    }
+}

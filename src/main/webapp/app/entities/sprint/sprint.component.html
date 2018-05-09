@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span jhiTranslate="agileManagerApp.sprint.home.title">Sprints</span>
+        <button class="btn btn-primary float-right jh-create-entity create-sprint" [routerLink]="['/', { outlets: { popup: ['sprint-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="agileManagerApp.sprint.home.createLabel">
+            Create new Sprint
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="sprints">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="agileManagerApp.sprint.startDate">Start Date</span></th>
+            <th><span jhiTranslate="agileManagerApp.sprint.endDate">End Date</span></th>
+            <th><span jhiTranslate="agileManagerApp.sprint.order">Order</span></th>
+            <th><span jhiTranslate="agileManagerApp.sprint.project">Project</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sprint of sprints ;trackBy: trackId">
+                <td><a [routerLink]="['../sprint', sprint.id ]">{{sprint.id}}</a></td>
+                <td>{{sprint.startDate | date:'mediumDate'}}</td>
+                <td>{{sprint.endDate | date:'mediumDate'}}</td>
+                <td>{{sprint.order}}</td>
+                <td>
+                    <div *ngIf="sprint.project">
+                        <a [routerLink]="['../project', sprint.project?.id ]" >{{sprint.project?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../sprint', sprint.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sprint/'+ sprint.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sprint/'+ sprint.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+
+<div *ngIf="project">
+    <h2><span jhiTranslate="agileManagerApp.project.detail.title">Project</span> {{project.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="agileManagerApp.project.name">Name</span></dt>
+        <dd>
+            <span>{{project.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.project.creationDate">Creation Date</span></dt>
+        <dd>
+            <span>{{project.creationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.project.description">Description</span></dt>
+        <dd>
+            <span>{{project.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.project.userExtra">User Extra</span></dt>
+        <dd>
+            <span *ngFor="let userExtra of project.userExtras; let last = last">
+                <a [routerLink]="['/user-extra', userExtra?.id ]">{{userExtra.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'project/'+ project.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
