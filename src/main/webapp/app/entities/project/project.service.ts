@@ -44,6 +44,11 @@ export class ProjectService {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
     }
 
+    findProjectsByUserLogin(login: string): Observable<HttpResponse<Project[]>> {
+    return this.http.get<Project[]>(`api/users/${login}/projects`, { observe: 'response' })
+        .map((res: HttpResponse<Project[]>) => this.convertArrayResponse(res));
+    }
+
     private convertResponse(res: EntityResponseType): EntityResponseType {
         const body: Project = this.convertItemFromServer(res.body);
         return res.clone({body});

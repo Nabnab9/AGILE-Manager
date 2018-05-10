@@ -118,3 +118,5 @@ relationship ManyToOne {
 
 // Set pagination options
 paginate Task with infinite-scroll
+
+

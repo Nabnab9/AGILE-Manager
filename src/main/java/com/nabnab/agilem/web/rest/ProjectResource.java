@@ -117,4 +117,16 @@ public class ProjectResource {
         projectRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+    /**
+     * GET  /users/{login}/projects : get all the projects from a user login
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of projects in body
+     */
+    @GetMapping("/users/{login}/projects")
+    @Timed
+    public List<Project> getProjectsByUserLogin(@PathVariable String login) {
+        log.debug("REST request to get all Projects from " + login);
+        return projectRepository.findAllWithEagerRelationships();
+    }
 }
