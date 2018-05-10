@@ -127,6 +127,6 @@ public class ProjectResource {
     @Timed
     public List<Project> getProjectsByUserLogin(@PathVariable String login) {
         log.debug("REST request to get all Projects from " + login);
-        return projectRepository.findAllWithEagerRelationships();
+        return projectRepository.findAllByUserLogin(login);
     }
 }
