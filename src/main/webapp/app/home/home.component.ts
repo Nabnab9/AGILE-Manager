@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import {JhiAlertService, JhiEventManager} from 'ng-jhipster';
-import {Account, LoginModalService, Principal, UserService} from '../shared';
+import {Account, LoginModalService, Principal} from '../shared';
 import {Project, ProjectService} from '../entities/project';
 import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
 
@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
         private loginModalService: LoginModalService,
         private eventManager: JhiEventManager,
         private projectService: ProjectService,
-        //private userService: UserService,
         private jhiAlertService: JhiAlertService
     ) {
     }
