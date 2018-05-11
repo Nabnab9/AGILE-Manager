@@ -32,9 +32,9 @@ install:
   - yarn install
 script:
   - chmod +x mvnw
-  - ./mvnw clean test
-  - yarn test
-  - ./mvnw verify -Pprod -DskipTests
+  #- ./mvnw clean test
+  #- yarn test
+  #- ./mvnw verify -Pprod -DskipTests
 notifications:
   webhooks:
     on_success: change  # options: [always|never|change] default: always
