@@ -1,0 +1,40 @@
+
+<div *ngIf="sprint">
+    <h2><span jhiTranslate="agileManagerApp.sprint.detail.title">Sprint</span> {{sprint.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="agileManagerApp.sprint.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{sprint.startDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.sprint.endDate">End Date</span></dt>
+        <dd>
+            <span>{{sprint.endDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.sprint.order">Order</span></dt>
+        <dd>
+            <span>{{sprint.order}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.sprint.project">Project</span></dt>
+        <dd>
+            <div *ngIf="sprint.project">
+                <a [routerLink]="['/project', sprint.project?.id]">{{sprint.project?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sprint/'+ sprint.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

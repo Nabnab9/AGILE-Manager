@@ -1,0 +1,25 @@
+
+{
+    "agileManagerApp": {
+        "duration" : {
+            "home": {
+                "title": "Durations",
+                "createLabel": "Créer un nouveau Duration",
+                "createOrEditLabel": "Créer ou éditer un Duration"
+            },
+            "created": "Un nouveau Duration a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Duration avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Duration avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Duration {{ id }} ?"
+            },
+            "detail": {
+                "title": "Duration"
+            },
+            "estimated": "Estimated",
+            "spent": "Spent",
+            "name": "Name",
+            "task": "Task"
+        }
+    }
+}

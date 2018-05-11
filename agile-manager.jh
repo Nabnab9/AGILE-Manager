@@ -1,0 +1,122 @@
+/**
+ * Utilisé en tant que lien avec le user jhipter
+ * @author Nabnab
+ */
+entity UserExtra{
+	description String maxlength(500),
+
+}
+
+/**
+ * Le projet AGILE, partagé par plusieurs Users
+ * @author Nabnab
+ */
+entity Project {
+	name String required minlength(2),
+    creationDate LocalDate required,
+    description String maxlength(500)
+}
+
+/**
+ * Un projet est découpé en plusieurs Sprints
+ * @author Nabnab
+ */
+entity Sprint{
+	startDate LocalDate required,
+    endDate LocalDate required,
+    order Integer required
+}
+
+/**
+ * Chaque Sprint est organisé en listes de tasks
+ * @author Nabnab
+ */
+entity TaskList{
+	name String required minlength(2),
+    order Integer required
+}
+
+/**
+ * La task est l'élément atomique du dev
+ * @author Nabnab
+ */
+entity Task{
+	title String required minlength(2),
+    description String maxlength(500),
+    order Integer required
+}
+
+/**
+ * Durée de la tache, estimée et passée, pour le dev, le testeur ..
+ * @author Nabnab
+ */
+entity Duration{
+	estimated Float,
+    spent Float,
+    name String required
+}
+
+/**
+ * Liste de Tag
+ * @author Nabnab
+ */
+entity TagList{
+	title String required
+}
+
+/**
+ * Tag décrivant la tache (priorité, importance, poids ..)
+ * @author Nabnab
+ */
+entity Tag{
+	label String required,
+    order Integer required,
+    tagged Boolean required
+}
+
+/**
+ * Bah une liste de checks
+ * @author Nabnab
+ */
+entity CheckList{
+	title String required
+}
+
+/**
+ * Les checks de la liste de checks
+ * @author Nabnab
+ */
+entity CheckItem{
+	label String required,
+    checked Boolean required
+}
+
+relationship OneToOne{
+	UserExtra{user} to User{userExtra}
+}
+
+relationship ManyToMany {
+	Project{userExtra} to UserExtra{project},
+	 Task{userExtra} to UserExtra{task}
+}
+
+relationship ManyToOne {
+	Sprint{project} to Project{sprint},
+    TaskList{sprint} to Sprint{taskList},
+    Task{taskList} to TaskList{task},
+    Duration{task} to Task{duration},
+
+    TagList{task} to Task{tagList},
+    Tag{tagList} to TagList{tag},
+
+    CheckList{task} to Task{checkList},
+    CheckItem{checkList} to CheckList{CheckItem}
+}
+
+
+
+
+// Set pagination options
+paginate Task with infinite-scroll
+
+

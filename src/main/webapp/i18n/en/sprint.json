@@ -1,0 +1,26 @@
+
+{
+    "agileManagerApp": {
+        "sprint" : {
+            "home": {
+                "title": "Sprints",
+                "createLabel": "Create a new Sprint",
+                "createOrEditLabel": "Create or edit a Sprint"
+            },
+            "created": "A new Sprint is created with identifier {{ param }}",
+            "updated": "A Sprint is updated with identifier {{ param }}",
+            "deleted": "A Sprint is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sprint {{ id }}?"
+            },
+            "detail": {
+                "title": "Sprint"
+            },
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "order": "Order",
+            "project": "Project",
+            "taskList": "Task List"
+        }
+    }
+}

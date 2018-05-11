@@ -51,8 +51,8 @@ spring:
     social:
         # see https://developers.google.com/+/web/signin/server-side-flow#step_1_create_a_client_id_and_client_secret
         google:
-            client-id: xxx
-            client-secret: xxx
+            client-id: 648495652350-lffg3jm53k0hnhv6fivhr151dhp6aadq.apps.googleusercontent.com
+            client-secret: NzxEuyoq2CIY5oizWudZpUjP
 
         # see https://developers.facebook.com/docs/facebook-login/v2.2
         facebook:

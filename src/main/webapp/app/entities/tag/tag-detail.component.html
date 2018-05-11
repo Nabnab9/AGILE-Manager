@@ -1,0 +1,40 @@
+
+<div *ngIf="tag">
+    <h2><span jhiTranslate="agileManagerApp.tag.detail.title">Tag</span> {{tag.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="agileManagerApp.tag.label">Label</span></dt>
+        <dd>
+            <span>{{tag.label}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.tag.order">Order</span></dt>
+        <dd>
+            <span>{{tag.order}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.tag.tagged">Tagged</span></dt>
+        <dd>
+            <span>{{tag.tagged}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.tag.tagList">Tag List</span></dt>
+        <dd>
+            <div *ngIf="tag.tagList">
+                <a [routerLink]="['/tag-list', tag.tagList?.id]">{{tag.tagList?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tag/'+ tag.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

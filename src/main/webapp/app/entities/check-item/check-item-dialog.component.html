@@ -1,0 +1,54 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCheckItemLabel" jhiTranslate="agileManagerApp.checkItem.home.createOrEditLabel">Create or edit a Check Item</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!checkItem.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="checkItem.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="agileManagerApp.checkItem.label" for="field_label">Label</label>
+            <input type="text" class="form-control" name="label" id="field_label"
+                [(ngModel)]="checkItem.label" required/>
+            <div [hidden]="!(editForm.controls.label?.dirty && editForm.controls.label?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.label?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="agileManagerApp.checkItem.checked" for="field_checked">Checked</label>
+            <input type="checkbox" class="form-control" name="checked" id="field_checked"
+                [(ngModel)]="checkItem.checked" />
+            <div [hidden]="!(editForm.controls.checked?.dirty && editForm.controls.checked?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.checked?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="agileManagerApp.checkItem.checkList" for="field_checkList">Check List</label>
+            <select class="form-control" id="field_checkList" name="checkList" [(ngModel)]="checkItem.checkList" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="checkListOption.id === checkItem.checkList?.id ? checkItem.checkList : checkListOption" *ngFor="let checkListOption of checklists; trackBy: trackCheckListById">{{checkListOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

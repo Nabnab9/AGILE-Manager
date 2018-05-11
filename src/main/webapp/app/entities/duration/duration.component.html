@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span jhiTranslate="agileManagerApp.duration.home.title">Durations</span>
+        <button class="btn btn-primary float-right jh-create-entity create-duration" [routerLink]="['/', { outlets: { popup: ['duration-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="agileManagerApp.duration.home.createLabel">
+            Create new Duration
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="durations">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="agileManagerApp.duration.estimated">Estimated</span></th>
+            <th><span jhiTranslate="agileManagerApp.duration.spent">Spent</span></th>
+            <th><span jhiTranslate="agileManagerApp.duration.name">Name</span></th>
+            <th><span jhiTranslate="agileManagerApp.duration.task">Task</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let duration of durations ;trackBy: trackId">
+                <td><a [routerLink]="['../duration', duration.id ]">{{duration.id}}</a></td>
+                <td>{{duration.estimated}}</td>
+                <td>{{duration.spent}}</td>
+                <td>{{duration.name}}</td>
+                <td>
+                    <div *ngIf="duration.task">
+                        <a [routerLink]="['../task', duration.task?.id ]" >{{duration.task?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../duration', duration.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'duration/'+ duration.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'duration/'+ duration.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

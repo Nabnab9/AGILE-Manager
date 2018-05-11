@@ -1,0 +1,36 @@
+
+<div *ngIf="taskList">
+    <h2><span jhiTranslate="agileManagerApp.taskList.detail.title">Task List</span> {{taskList.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="agileManagerApp.taskList.name">Name</span></dt>
+        <dd>
+            <span>{{taskList.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.taskList.order">Order</span></dt>
+        <dd>
+            <span>{{taskList.order}}</span>
+        </dd>
+        <dt><span jhiTranslate="agileManagerApp.taskList.sprint">Sprint</span></dt>
+        <dd>
+            <div *ngIf="taskList.sprint">
+                <a [routerLink]="['/sprint', taskList.sprint?.id]">{{taskList.sprint?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'task-list/'+ taskList.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

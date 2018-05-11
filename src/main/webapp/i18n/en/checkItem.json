@@ -1,0 +1,24 @@
+
+{
+    "agileManagerApp": {
+        "checkItem" : {
+            "home": {
+                "title": "Check Items",
+                "createLabel": "Create a new Check Item",
+                "createOrEditLabel": "Create or edit a Check Item"
+            },
+            "created": "A new Check Item is created with identifier {{ param }}",
+            "updated": "A Check Item is updated with identifier {{ param }}",
+            "deleted": "A Check Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Check Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Check Item"
+            },
+            "label": "Label",
+            "checked": "Checked",
+            "checkList": "Check List"
+        }
+    }
+}

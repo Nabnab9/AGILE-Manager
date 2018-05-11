@@ -43,6 +43,28 @@ public class CacheConfiguration {
             cm.createCache(com.nabnab.agilem.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.nabnab.agilem.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.nabnab.agilem.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.UserExtra.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.UserExtra.class.getName() + ".projects", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.UserExtra.class.getName() + ".tasks", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Project.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Project.class.getName() + ".userExtras", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Project.class.getName() + ".sprints", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Sprint.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Sprint.class.getName() + ".taskLists", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.TaskList.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.TaskList.class.getName() + ".tasks", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Task.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Task.class.getName() + ".userExtras", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Task.class.getName() + ".durations", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Task.class.getName() + ".tagLists", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Task.class.getName() + ".checkLists", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Duration.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.TagList.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.TagList.class.getName() + ".tags", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.Tag.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.CheckList.class.getName(), jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.CheckList.class.getName() + ".checkItems", jcacheConfiguration);
+            cm.createCache(com.nabnab.agilem.domain.CheckItem.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

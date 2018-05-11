@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Nabnab9/AGILE-Manager.svg?branch=master)](https://travis-ci.com/Nabnab9/AGILE-Manager)
+
 # AgileManager
 This application was generated using JHipster 4.14.3, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.14.3](http://www.jhipster.tech/documentation-archive/v4.14.3).
 
