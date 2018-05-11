@@ -27,6 +27,7 @@ before_install:
   # Repo for Yarn
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
+  - apt-get install sshpass -y
 install:
   - yarn install
 script:
