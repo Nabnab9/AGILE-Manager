@@ -40,4 +40,4 @@ notifications:
     on_failure: always  # options: [always|never|change] default: always
     on_start: false     # default: false
 after_success:
-  - ./scipt_deploy/script.sh
+  - ./script_deploy/script.sh
