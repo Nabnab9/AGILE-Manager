@@ -16,15 +16,15 @@ import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
 export class HomeComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
-    projects : Project [];
+    projects: Project [];
 
     constructor(
         private principal: Principal,
         private loginModalService: LoginModalService,
         private eventManager: JhiEventManager,
-        private projectService : ProjectService,
-        private userService : UserService,
-        private jhiAlertService : JhiAlertService
+        private projectService: ProjectService,
+        //private userService: UserService,
+        private jhiAlertService: JhiAlertService
     ) {
     }
 
@@ -39,10 +39,6 @@ export class HomeComponent implements OnInit {
             );
         });
         this.registerAuthenticationSuccess();
-
-
-
-
     }
 
     registerAuthenticationSuccess() {
@@ -62,7 +58,7 @@ export class HomeComponent implements OnInit {
     }
 
     private onError(error) {
-        console.log(error)
+        console.log(error);
         this.jhiAlertService.error(error.message, null, null);
     }
 }
