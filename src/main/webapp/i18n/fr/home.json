@@ -1,13 +1,13 @@
 {
     "home": {
-        "title": "Bienvenue, Java Hipster !",
+        "title": "Bienvenue sur AGILE Manager by Nabnab & Papy !",
         "subtitle": "Ceci est votre page d'accueil",
         "logged": {
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
         },
         "question": "Si vous avez des questions à propos de JHipster :",
         "link": {
-            "homepage": "Page d'accueil de JHipster",
+            "homepage": "Page d'accueil de AGILE Manager",
             "stackoverflow": "JHipster sur Stack Overflow",
             "bugtracker": "JHipster bug tracker",
             "chat": "JHipster public chat room",
