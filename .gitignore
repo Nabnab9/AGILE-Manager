@@ -11,6 +11,7 @@
 ##### Pour pas envoyer mes secrets de google####
 /src/main/resources/config/*.yml
 
+/script_deploy/**.log
 /script_deploy/*.log
 
 ######################
