@@ -7,9 +7,12 @@
 /src/test/javascript/PhantomJS*/
 
 ##### json conf file ####
-useful_files/client_id.json
-##### Pour pas envoyer mes secrets de google + ####
-/src/main/resources/config/application.yml
+/useful_files/client_id.json
+##### Pour pas envoyer mes secrets de google####
+/src/main/resources/config/*.yml
+
+/script_deploy/**.log
+/script_deploy/*.log
 
 deploy.log
 
