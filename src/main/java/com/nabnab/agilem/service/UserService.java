@@ -3,8 +3,10 @@ package com.nabnab.agilem.service;
 import com.nabnab.agilem.config.CacheConfiguration;
 import com.nabnab.agilem.domain.Authority;
 import com.nabnab.agilem.domain.User;
+import com.nabnab.agilem.domain.UserExtra;
 import com.nabnab.agilem.repository.AuthorityRepository;
 import com.nabnab.agilem.config.Constants;
+import com.nabnab.agilem.repository.UserExtraRepository;
 import com.nabnab.agilem.repository.UserRepository;
 import com.nabnab.agilem.security.AuthoritiesConstants;
 import com.nabnab.agilem.security.SecurityUtils;
@@ -43,14 +45,18 @@ public class UserService {
 
     private final AuthorityRepository authorityRepository;
 
+    private final UserExtraRepository userExtraRepository;
+
     private final CacheManager cacheManager;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, SocialService socialService, AuthorityRepository authorityRepository, CacheManager cacheManager) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, SocialService socialService, AuthorityRepository authorityRepository,
+                       CacheManager cacheManager, UserExtraRepository userExtraRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.socialService = socialService;
         this.authorityRepository = authorityRepository;
         this.cacheManager = cacheManager;
+        this.userExtraRepository = userExtraRepository;
     }
 
     public Optional<User> activateRegistration(String key) {
@@ -115,6 +121,11 @@ public class UserService {
         authorities.add(authority);
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
+        UserExtra newUserExtra = new UserExtra();
+        newUserExtra.setUser(newUser);
+        newUserExtra.setDescription("User for " + newUser.getFirstName() + " " + newUser.getLastName());
+        userExtraRepository.save(newUserExtra);
+
         cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE).evict(newUser.getLogin());
         cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE).evict(newUser.getEmail());
         log.debug("Created Information for User: {}", newUser);
@@ -145,6 +156,10 @@ public class UserService {
         user.setResetDate(Instant.now());
         user.setActivated(true);
         userRepository.save(user);
+        UserExtra newUserExtra = new UserExtra();
+        newUserExtra.setUser(user);
+        newUserExtra.setDescription("User for " + user.getFirstName() + " " + user.getLastName());
+        userExtraRepository.save(newUserExtra);
         cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE).evict(user.getLogin());
         cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE).evict(user.getEmail());
         log.debug("Created Information for User: {}", user);
