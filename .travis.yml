@@ -9,7 +9,7 @@ jdk:
   - oraclejdk8
 sudo: true
 addons:
-    ssh_known_hosts: $server
+    ssh_known_hosts: 185.212.226.60
     apt:
         packages:
             - sshpass
