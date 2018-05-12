@@ -7,8 +7,9 @@ node_js:
   - "8.9.4"
 jdk:
   - oraclejdk8
-sudo: false
+sudo: true
 addons:
+    ssh_known_hosts: $server
     apt:
         packages:
             - sshpass
