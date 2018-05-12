@@ -14,13 +14,13 @@ echo '--------- git pull ------'
 sshpass -p $password ssh -t $username@$server "cd projects/AGILE-Manager && git pull"
 
 echo '--------- create log folder ------'
-sshpass -p $password ssh -t $username@$server "cd projects/AGILE-Manager/script_deploy/logs/ && mkdir $TRAVIS_JOB_NUMBER-$TRAVIS_COMMIT"
+sshpass -p $password ssh -t $username@$server "cd projects/AGILE-Manager/script_deploy/logs/ && mkdir $TRAVIS_BUILD_NUMBER-$TRAVIS_JOB_NUMBER"
 
 echo '--------- start server ------'
-sshpass -p $password ssh -t $username@$server "cd projects/AGILE-Manager && ./mvnw > script_deploy/logs/$TRAVIS_JOB_NUMBER-$TRAVIS_COMMIT/deploy.mvnw.log 2>&1 & "
+sshpass -p $password ssh -t $username@$server "cd projects/AGILE-Manager && ./mvnw > script_deploy/logs/$TRAVIS_BUILD_NUMBER-$TRAVIS_JOB_NUMBER/deploy.mvnw.log 2>&1 & "
 
 echo '--------- sleep 1m ------'
-sleep 1m
+sleep 2m
 
 echo '--------- yarn build ------'
-sshpass -p $password ssh -t $username@$server "cd projects/AGILE-Manager && yarn webpack:build > script_deploy/logs/$TRAVIS_JOB_NUMBER-$TRAVIS_COMMIT/deploy.yarnstart.log 2>&1 &"
+sshpass -p $password ssh -t $username@$server "cd projects/AGILE-Manager && yarn start > script_deploy/logs/$TRAVIS_BUILD_NUMBER-$TRAVIS_JOB_NUMBER/deploy.yarnstart.log 2>&1 &"
