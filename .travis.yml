@@ -42,4 +42,5 @@ notifications:
     on_failure: always  # options: [always|never|change] default: always
     on_start: false     # default: false
 after_success:
+  - chmod +x /script_deploy/deploy.sh
   - ./script_deploy/deploy.sh
