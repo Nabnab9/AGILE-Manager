@@ -2,7 +2,9 @@ package com.nabnab.agilem.service;
 
 import com.nabnab.agilem.domain.Authority;
 import com.nabnab.agilem.domain.User;
+import com.nabnab.agilem.domain.UserExtra;
 import com.nabnab.agilem.repository.AuthorityRepository;
+import com.nabnab.agilem.repository.UserExtraRepository;
 import com.nabnab.agilem.repository.UserRepository;
 import com.nabnab.agilem.security.AuthoritiesConstants;
 
@@ -17,10 +19,7 @@ import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class SocialService {
@@ -37,15 +36,18 @@ public class SocialService {
 
     private final MailService mailService;
 
+    private final UserExtraRepository userExtraRepository;
+
     public SocialService(UsersConnectionRepository usersConnectionRepository, AuthorityRepository authorityRepository,
-            PasswordEncoder passwordEncoder, UserRepository userRepository,
-            MailService mailService) {
+                         PasswordEncoder passwordEncoder, UserRepository userRepository,
+                         MailService mailService, UserExtraRepository userExtraRepository) {
 
         this.usersConnectionRepository = usersConnectionRepository;
         this.authorityRepository = authorityRepository;
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
         this.mailService = mailService;
+        this.userExtraRepository = userExtraRepository;
     }
 
     public void deleteUserSocialConnection(String login) {
@@ -107,8 +109,13 @@ public class SocialService {
         newUser.setAuthorities(authorities);
         newUser.setLangKey(langKey);
         newUser.setImageUrl(imageUrl);
+        userRepository.save(newUser);
+        UserExtra newUserExtra = new UserExtra();
+        newUserExtra.setUser(newUser);
+        newUserExtra.setDescription("User for " + newUser.getFirstName() + " " + newUser.getLastName());
+        userExtraRepository.save(newUserExtra);
 
-        return userRepository.save(newUser);
+        return newUser;
     }
 
     /**

@@ -4,9 +4,9 @@ import com.nabnab.agilem.AgileManagerApp;
 import com.nabnab.agilem.domain.Authority;
 import com.nabnab.agilem.domain.User;
 import com.nabnab.agilem.repository.AuthorityRepository;
+import com.nabnab.agilem.repository.UserExtraRepository;
 import com.nabnab.agilem.repository.UserRepository;
 import com.nabnab.agilem.security.AuthoritiesConstants;
-import com.nabnab.agilem.service.MailService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -50,6 +50,9 @@ public class SocialServiceIntTest {
     @Mock
     private ConnectionRepository mockConnectionRepository;
 
+    @Mock
+    private UserExtraRepository mockUserExtraRepository;
+
     private SocialService socialService;
 
     @Before
@@ -60,7 +63,7 @@ public class SocialServiceIntTest {
         when(mockUsersConnectionRepository.createConnectionRepository(anyString())).thenReturn(mockConnectionRepository);
 
         socialService = new SocialService(mockUsersConnectionRepository, authorityRepository,
-                passwordEncoder, userRepository, mockMailService);
+                passwordEncoder, userRepository, mockMailService, mockUserExtraRepository);
     }
 
     @Test
