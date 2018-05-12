@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo 'on est dans le deploy.sh'
+echo $TRAVIS_COMMIT
 sshpass -p ${password} ssh -t ${username}@${server} "cd projects/AGILE-Manager && pkill java"
 sshpass -p ${password} ssh -t ${username}@${server} "cd projects/AGILE-Manager && pkill node"
 sshpass -p ${password} ssh -t ${username}@${server} "cd projects/AGILE-Manager && git pull"
