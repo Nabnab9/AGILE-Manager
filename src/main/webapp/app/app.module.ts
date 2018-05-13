@@ -27,6 +27,8 @@ import {
     ActiveMenuDirective,
     ErrorComponent
 } from './layouts';
+import { ProjectSummaryComponent } from './core/components/project-summary/project-summary.component';
+import { ProjectsPageComponent } from './core/pages/projects-page/projects-page.component';
 
 @NgModule({
     imports: [
@@ -46,7 +48,9 @@ import {
         ErrorComponent,
         PageRibbonComponent,
         ActiveMenuDirective,
-        FooterComponent
+        FooterComponent,
+        ProjectSummaryComponent,
+        ProjectsPageComponent
     ],
     providers: [
         ProfileService,
