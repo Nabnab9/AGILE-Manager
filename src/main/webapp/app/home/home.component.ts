@@ -30,12 +30,14 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.principal.identity().then((account) => {
             this.account = account;
-            this.projectService.findProjectsByUserLogin(this.account.login).subscribe(
-                (res: HttpResponse<Project[]>) => {
-                    this.projects = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
+            if (this.account !== null){
+                this.projectService.findProjectsByUserLogin(this.account.login).subscribe(
+                    (res: HttpResponse<Project[]>) => {
+                        this.projects = res.body;
+                    },
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            }
         });
         this.registerAuthenticationSuccess();
     }
