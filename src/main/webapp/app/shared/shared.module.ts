@@ -18,11 +18,18 @@ import {
     JhiSocialComponent,
     SocialService,
 } from './';
+import {MatButtonModule, MatIconModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
     imports: [
         AgileManagerSharedLibsModule,
-        AgileManagerSharedCommonModule
+        AgileManagerSharedCommonModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatIconModule
     ],
     declarations: [
         JhiSocialComponent,
@@ -48,7 +55,12 @@ import {
         JhiSocialComponent,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
-        DatePipe
+        DatePipe,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatIconModule
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
