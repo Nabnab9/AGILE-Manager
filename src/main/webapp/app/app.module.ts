@@ -17,6 +17,7 @@ import { AgileManagerAdminModule } from './admin/admin.module';
 import { AgileManagerAccountModule } from './account/account.module';
 import { AgileManagerEntityModule } from './entities/entity.module';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
+import { MatCardModule } from "@angular/material";
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import {
     JhiMainComponent,
@@ -38,6 +39,7 @@ import {
         AgileManagerAdminModule,
         AgileManagerAccountModule,
         AgileManagerEntityModule,
+        MatCardModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
