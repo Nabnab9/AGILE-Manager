@@ -10,4 +10,4 @@ export const HOME_ROUTE: Routes = [{
         pageTitle: 'home.title'
     }
 },
-    { path: 'project-list', component: ProjectPageComponent },];
+    { path: 'project-list', component: ProjectPageComponent }, ];
