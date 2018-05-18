@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Project} from '../../../entities/project';
 
 @Component({
   selector: 'jhi-project-summary',
@@ -14,9 +15,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectSummaryComponent implements OnInit {
 
-  constructor() { }
+    @Input() p: Project;
 
-  ngOnInit() {
+    constructor() { }
+
+    ngOnInit() {
+
   }
 
 }

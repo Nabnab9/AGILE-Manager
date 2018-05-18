@@ -1,7 +1,17 @@
-<p>
-<jhi-project-summary></jhi-project-summary>
-<jhi-project-summary></jhi-project-summary>
-<jhi-project-summary></jhi-project-summary>
-<jhi-project-summary></jhi-project-summary>
-<jhi-project-summary></jhi-project-summary>
-</p>
+
+<div fxLayout='row' fxLayoutGap="5px">
+
+
+        <jhi-project-summary
+            fxFlex
+            *ngFor="let p of projects"
+            [p] = "p">
+
+        </jhi-project-summary>
+
+
+</div>
+
+
+
+
