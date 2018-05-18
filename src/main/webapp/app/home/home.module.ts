@@ -3,12 +3,12 @@ import { RouterModule } from '@angular/router';
 
 import { AgileManagerSharedModule } from '../shared';
 
-import { HOME_ROUTE, HomeComponent } from './';
+import {HOME_ROUTE, HomeComponent} from './';
 
 @NgModule({
     imports: [
         AgileManagerSharedModule,
-        RouterModule.forChild([ HOME_ROUTE ])
+        RouterModule.forChild(HOME_ROUTE),
     ],
     declarations: [
         HomeComponent,

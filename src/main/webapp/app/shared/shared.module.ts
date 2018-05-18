@@ -18,7 +18,7 @@ import {
     JhiSocialComponent,
     SocialService,
 } from './';
-import {MatButtonModule, MatIconModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -29,7 +29,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         MatInputModule,
         MatButtonModule,
         MatSelectModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
     ],
     declarations: [
         JhiSocialComponent,
@@ -60,7 +61,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         MatInputModule,
         MatButtonModule,
         MatSelectModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
