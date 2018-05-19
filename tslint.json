@@ -59,7 +59,8 @@
         ],
         "quotemark": [
             true,
-            "single"
+            "single",
+            "double"
         ],
         "radix": true,
         "semicolon": [
@@ -93,7 +94,7 @@
         "arrow-parens": [true],
         "arrow-return-shorthand": [true],
         "import-spacing": true,
-        "no-consecutive-blank-lines": [true],
+        "no-consecutive-blank-lines": [false],
         "object-literal-shorthand": true,
         "space-before-function-paren": [true, "never"],
 

@@ -18,23 +18,13 @@ import {
     JhiSocialComponent,
     SocialService,
 } from './';
-import {MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatSelectModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import {AgileManagerMaterialModule} from './material.module';
+
 
 @NgModule({
     imports: [
         AgileManagerSharedLibsModule,
         AgileManagerSharedCommonModule,
-        BrowserAnimationsModule,
-
-        FlexLayoutModule,
-
-        MatInputModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatIconModule,
-        MatCardModule
     ],
     declarations: [
         JhiSocialComponent,
@@ -52,7 +42,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
         AuthServerProvider,
         SocialService,
         UserService,
-        DatePipe
+        DatePipe,
+        AgileManagerMaterialModule,
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
@@ -61,13 +52,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
         DatePipe,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatIconModule,
-        MatCardModule,
-        FlexLayoutModule
+        AgileManagerMaterialModule,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

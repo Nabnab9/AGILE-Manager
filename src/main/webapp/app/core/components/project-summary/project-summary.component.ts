@@ -4,14 +4,7 @@ import {Project} from '../../../entities/project';
 @Component({
   selector: 'jhi-project-summary',
   templateUrl: './project-summary.component.html',
-  styles: ['.example-card {\n' +
-  '  max-width: 400px;\n' +
-  '}\n' +
-  '\n' +
-  '.example-header-image {\n' +
-  '  background-image: url(\'https://material.angular.io/assets/img/examples/shiba1.jpg\');\n' +
-  '  background-size: cover;\n' +
-  '}']
+  styleUrls: ['./project-list.scss']
 })
 export class ProjectSummaryComponent implements OnInit {
 

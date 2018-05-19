@@ -11,6 +11,7 @@
         <button mat-button
                 [routerLink]="['/', { outlets: { popup: 'project/'+ p.id + '/edit'} }]"
                 replaceUrl="true">LIKE</button>
-        <button mat-button>SHARE</button>
+        <button mat-button
+                [routerLink]="['../project', p.id ]">SHARE</button>
     </mat-card-actions>
 </mat-card>
