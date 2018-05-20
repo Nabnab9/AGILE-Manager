@@ -4,6 +4,7 @@ import { ProjectSummaryComponent } from './components/project-summary/project-su
 import { ProjectPageComponent } from './pages/project-page/project-page.component';
 import {AgileManagerSharedModule} from '../shared';
 import {RouterModule} from '@angular/router';
+import { ProjectComponent } from './components/project/project.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,10 @@ import {RouterModule} from '@angular/router';
       AgileManagerSharedModule,
       RouterModule
   ],
-  declarations: [ProjectSummaryComponent, ProjectPageComponent]
+  declarations: [
+      ProjectSummaryComponent,
+      ProjectPageComponent,
+      ProjectComponent
+  ]
 })
 export class CoreModule { }

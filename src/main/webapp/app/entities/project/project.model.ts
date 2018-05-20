@@ -1,4 +1,5 @@
 import { BaseEntity } from './../../shared';
+import {UserExtra} from "../user-extra";
 
 export class Project implements BaseEntity {
     constructor(
@@ -6,7 +7,7 @@ export class Project implements BaseEntity {
         public name?: string,
         public creationDate?: any,
         public description?: string,
-        public userExtras?: BaseEntity[],
+        public userExtras?: UserExtra[],
         public sprints?: BaseEntity[],
     ) {
     }
