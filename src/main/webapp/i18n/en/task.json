@@ -22,7 +22,8 @@
             "duration": "Duration",
             "tagList": "Tag List",
             "checkList": "Check List",
-            "userExtra": "User Extra"
+            "userExtra": "User Extra",
+            "taskList": "Task List"
         }
     }
 }

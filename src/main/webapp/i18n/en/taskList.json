@@ -18,6 +18,7 @@
             },
             "name": "Name",
             "order": "Order",
+            "task": "Task",
             "sprint": "Sprint"
         }
     }

@@ -26,6 +26,12 @@
             "otherEntityName": "userExtra",
             "otherEntityField": "id",
             "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "taskList",
+            "otherEntityName": "taskList",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

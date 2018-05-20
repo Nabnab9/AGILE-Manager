@@ -5,6 +5,7 @@ export class TaskList implements BaseEntity {
         public id?: number,
         public name?: string,
         public order?: number,
+        public tasks?: BaseEntity[],
         public sprint?: BaseEntity,
     ) {
     }

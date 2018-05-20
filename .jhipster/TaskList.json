@@ -2,6 +2,12 @@
     "fluentMethods": true,
     "relationships": [
         {
+            "relationshipType": "one-to-many",
+            "relationshipName": "task",
+            "otherEntityName": "task",
+            "otherEntityRelationshipName": "taskList"
+        },
+        {
             "relationshipType": "many-to-one",
             "relationshipName": "sprint",
             "otherEntityName": "sprint",

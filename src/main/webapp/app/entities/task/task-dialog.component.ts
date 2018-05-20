@@ -10,6 +10,7 @@ import { Task } from './task.model';
 import { TaskPopupService } from './task-popup.service';
 import { TaskService } from './task.service';
 import { UserExtra, UserExtraService } from '../user-extra';
+import { TaskList, TaskListService } from '../task-list';
 
 @Component({
     selector: 'jhi-task-dialog',
@@ -22,11 +23,14 @@ export class TaskDialogComponent implements OnInit {
 
     userextras: UserExtra[];
 
+    tasklists: TaskList[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private taskService: TaskService,
         private userExtraService: UserExtraService,
+        private taskListService: TaskListService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -35,6 +39,8 @@ export class TaskDialogComponent implements OnInit {
         this.isSaving = false;
         this.userExtraService.query()
             .subscribe((res: HttpResponse<UserExtra[]>) => { this.userextras = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.taskListService.query()
+            .subscribe((res: HttpResponse<TaskList[]>) => { this.tasklists = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -72,6 +78,10 @@ export class TaskDialogComponent implements OnInit {
     }
 
     trackUserExtraById(index: number, item: UserExtra) {
+        return item.id;
+    }
+
+    trackTaskListById(index: number, item: TaskList) {
         return item.id;
     }
 

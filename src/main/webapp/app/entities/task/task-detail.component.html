@@ -22,6 +22,12 @@
                 <a [routerLink]="['/user-extra', userExtra?.id ]">{{userExtra.id}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
+        <dt><span jhiTranslate="agileManagerApp.task.taskList">Task List</span></dt>
+        <dd>
+            <div *ngIf="task.taskList">
+                <a [routerLink]="['/task-list', task.taskList?.id]">{{task.taskList?.id}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

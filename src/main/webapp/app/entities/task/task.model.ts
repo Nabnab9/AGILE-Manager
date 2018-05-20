@@ -10,6 +10,7 @@ export class Task implements BaseEntity {
         public tagLists?: BaseEntity[],
         public checkLists?: BaseEntity[],
         public userExtras?: BaseEntity[],
+        public taskList?: BaseEntity,
     ) {
     }
 }

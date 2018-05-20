@@ -40,6 +40,7 @@ describe('Task e2e test', () => {
         taskDialogPage.setOrderInput('5');
         expect(taskDialogPage.getOrderInput()).toMatch('5');
         // taskDialogPage.userExtraSelectLastOption();
+        taskDialogPage.taskListSelectLastOption();
         taskDialogPage.save();
         expect(taskDialogPage.getSaveButton().isPresent()).toBeFalsy();
     });
@@ -70,6 +71,7 @@ export class TaskDialogPage {
     descriptionInput = element(by.css('input#field_description'));
     orderInput = element(by.css('input#field_order'));
     userExtraSelect = element(by.css('select#field_userExtra'));
+    taskListSelect = element(by.css('select#field_taskList'));
 
     getModalTitle() {
         return this.modalTitle.getAttribute('jhiTranslate');
@@ -113,6 +115,22 @@ export class TaskDialogPage {
 
     getUserExtraSelectedOption = function() {
         return this.userExtraSelect.element(by.css('option:checked')).getText();
+    };
+
+    taskListSelectLastOption = function() {
+        this.taskListSelect.all(by.tagName('option')).last().click();
+    };
+
+    taskListSelectOption = function(option) {
+        this.taskListSelect.sendKeys(option);
+    };
+
+    getTaskListSelect = function() {
+        return this.taskListSelect;
+    };
+
+    getTaskListSelectedOption = function() {
+        return this.taskListSelect.element(by.css('option:checked')).getText();
     };
 
     save() {

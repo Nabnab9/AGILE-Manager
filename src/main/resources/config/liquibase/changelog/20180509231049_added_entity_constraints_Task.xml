@@ -19,5 +19,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="user_extra"/>
         
+        <addForeignKeyConstraint baseColumnNames="task_list_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_task_list_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task_list"/>
+
     </changeSet>
 </databaseChangeLog>

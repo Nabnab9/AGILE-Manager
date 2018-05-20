@@ -65,6 +65,9 @@ public class Task implements Serializable {
                inverseJoinColumns = @JoinColumn(name="user_extras_id", referencedColumnName="id"))
     private Set<UserExtra> userExtras = new HashSet<>();
 
+    @ManyToOne
+    private TaskList taskList;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -211,6 +214,19 @@ public class Task implements Serializable {
 
     public void setUserExtras(Set<UserExtra> userExtras) {
         this.userExtras = userExtras;
+    }
+
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
+    public Task taskList(TaskList taskList) {
+        this.taskList = taskList;
+        return this;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

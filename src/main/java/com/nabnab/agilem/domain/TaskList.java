@@ -1,5 +1,6 @@
 package com.nabnab.agilem.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -8,6 +9,8 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -35,6 +38,11 @@ public class TaskList implements Serializable {
     @NotNull
     @Column(name = "jhi_order", nullable = false)
     private Integer order;
+
+    @OneToMany(mappedBy = "taskList")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Task> tasks = new HashSet<>();
 
     @ManyToOne
     private Sprint sprint;
@@ -72,6 +80,31 @@ public class TaskList implements Serializable {
 
     public void setOrder(Integer order) {
         this.order = order;
+    }
+
+    public Set<Task> getTasks() {
+        return tasks;
+    }
+
+    public TaskList tasks(Set<Task> tasks) {
+        this.tasks = tasks;
+        return this;
+    }
+
+    public TaskList addTask(Task task) {
+        this.tasks.add(task);
+        task.setTaskList(this);
+        return this;
+    }
+
+    public TaskList removeTask(Task task) {
+        this.tasks.remove(task);
+        task.setTaskList(null);
+        return this;
+    }
+
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
     }
 
     public Sprint getSprint() {

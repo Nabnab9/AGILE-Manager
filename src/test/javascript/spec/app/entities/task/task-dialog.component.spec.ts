@@ -10,6 +10,7 @@ import { TaskDialogComponent } from '../../../../../../main/webapp/app/entities/
 import { TaskService } from '../../../../../../main/webapp/app/entities/task/task.service';
 import { Task } from '../../../../../../main/webapp/app/entities/task/task.model';
 import { UserExtraService } from '../../../../../../main/webapp/app/entities/user-extra';
+import { TaskListService } from '../../../../../../main/webapp/app/entities/task-list';
 
 describe('Component Tests', () => {
 
@@ -26,6 +27,7 @@ describe('Component Tests', () => {
                 declarations: [TaskDialogComponent],
                 providers: [
                     UserExtraService,
+                    TaskListService,
                     TaskService
                 ]
             })
