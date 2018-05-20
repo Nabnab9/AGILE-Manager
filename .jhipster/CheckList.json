@@ -2,16 +2,16 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "many-to-one",
-            "relationshipName": "task",
-            "otherEntityName": "task",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "checkItem",
             "otherEntityName": "checkItem",
             "otherEntityRelationshipName": "checkList"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "task",
+            "otherEntityName": "task",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

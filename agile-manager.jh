@@ -100,17 +100,17 @@ relationship ManyToMany {
 	 Task{userExtra} to UserExtra{task}
 }
 
-relationship ManyToOne {
-	Sprint{project} to Project{sprint},
-    TaskList{sprint} to Sprint{taskList},
-    Task{taskList} to TaskList{task},
-    Duration{task} to Task{duration},
 
-    TagList{task} to Task{tagList},
-    Tag{tagList} to TagList{tag},
 
-    CheckList{task} to Task{checkList},
-    CheckItem{checkList} to CheckList{CheckItem}
+relationship OneToMany {
+    Project{sprint} to Sprint{project},
+    Sprint{taskList} to TaskList{Sprint},
+    TaskList{task} to Task{taskList},
+    Task{duration} to Duration{task},
+    Task{tagList} to TagList{task},
+    TagList{tag} to Tag {tagList},
+    Task{checkList} to CheckList{task},
+    CheckList{checkItem} to CheckItem{checkList}
 }
 
 

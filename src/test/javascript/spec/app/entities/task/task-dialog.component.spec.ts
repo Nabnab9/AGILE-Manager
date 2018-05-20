@@ -9,7 +9,6 @@ import { AgileManagerTestModule } from '../../../test.module';
 import { TaskDialogComponent } from '../../../../../../main/webapp/app/entities/task/task-dialog.component';
 import { TaskService } from '../../../../../../main/webapp/app/entities/task/task.service';
 import { Task } from '../../../../../../main/webapp/app/entities/task/task.model';
-import { TaskListService } from '../../../../../../main/webapp/app/entities/task-list';
 import { UserExtraService } from '../../../../../../main/webapp/app/entities/user-extra';
 
 describe('Component Tests', () => {
@@ -26,7 +25,6 @@ describe('Component Tests', () => {
                 imports: [AgileManagerTestModule],
                 declarations: [TaskDialogComponent],
                 providers: [
-                    TaskListService,
                     UserExtraService,
                     TaskService
                 ]

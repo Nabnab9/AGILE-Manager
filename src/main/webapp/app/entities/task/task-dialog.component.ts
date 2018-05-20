@@ -9,7 +9,6 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Task } from './task.model';
 import { TaskPopupService } from './task-popup.service';
 import { TaskService } from './task.service';
-import { TaskList, TaskListService } from '../task-list';
 import { UserExtra, UserExtraService } from '../user-extra';
 
 @Component({
@@ -21,15 +20,12 @@ export class TaskDialogComponent implements OnInit {
     task: Task;
     isSaving: boolean;
 
-    tasklists: TaskList[];
-
     userextras: UserExtra[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private taskService: TaskService,
-        private taskListService: TaskListService,
         private userExtraService: UserExtraService,
         private eventManager: JhiEventManager
     ) {
@@ -37,8 +33,6 @@ export class TaskDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.taskListService.query()
-            .subscribe((res: HttpResponse<TaskList[]>) => { this.tasklists = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.userExtraService.query()
             .subscribe((res: HttpResponse<UserExtra[]>) => { this.userextras = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
@@ -75,10 +69,6 @@ export class TaskDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
-    }
-
-    trackTaskListById(index: number, item: TaskList) {
-        return item.id;
     }
 
     trackUserExtraById(index: number, item: UserExtra) {

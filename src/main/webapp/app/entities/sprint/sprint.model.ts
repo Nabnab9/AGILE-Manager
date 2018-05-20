@@ -6,8 +6,8 @@ export class Sprint implements BaseEntity {
         public startDate?: any,
         public endDate?: any,
         public order?: number,
-        public project?: BaseEntity,
         public taskLists?: BaseEntity[],
+        public project?: BaseEntity,
     ) {
     }
 }

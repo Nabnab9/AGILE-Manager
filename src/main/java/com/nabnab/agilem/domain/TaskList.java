@@ -1,6 +1,5 @@
 package com.nabnab.agilem.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -9,8 +8,6 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -41,11 +38,6 @@ public class TaskList implements Serializable {
 
     @ManyToOne
     private Sprint sprint;
-
-    @OneToMany(mappedBy = "taskList")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Task> tasks = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -93,31 +85,6 @@ public class TaskList implements Serializable {
 
     public void setSprint(Sprint sprint) {
         this.sprint = sprint;
-    }
-
-    public Set<Task> getTasks() {
-        return tasks;
-    }
-
-    public TaskList tasks(Set<Task> tasks) {
-        this.tasks = tasks;
-        return this;
-    }
-
-    public TaskList addTask(Task task) {
-        this.tasks.add(task);
-        task.setTaskList(this);
-        return this;
-    }
-
-    public TaskList removeTask(Task task) {
-        this.tasks.remove(task);
-        task.setTaskList(null);
-        return this;
-    }
-
-    public void setTasks(Set<Task> tasks) {
-        this.tasks = tasks;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

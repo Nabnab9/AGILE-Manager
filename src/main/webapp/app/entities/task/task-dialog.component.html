@@ -55,13 +55,6 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="agileManagerApp.task.taskList" for="field_taskList">Task List</label>
-            <select class="form-control" id="field_taskList" name="taskList" [(ngModel)]="task.taskList" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="taskListOption.id === task.taskList?.id ? task.taskList : taskListOption" *ngFor="let taskListOption of tasklists; trackBy: trackTaskListById">{{taskListOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label jhiTranslate="agileManagerApp.task.userExtra" for="field_userExtra">User Extra</label>
             <select class="form-control" id="field_userExtra" multiple name="userExtra" [(ngModel)]="task.userExtras">
                 <option [ngValue]="getSelected(task.userExtras, userExtraOption)" *ngFor="let userExtraOption of userextras; trackBy: trackUserExtraById">{{userExtraOption.id}}</option>

@@ -43,13 +43,13 @@ public class Sprint implements Serializable {
     @Column(name = "jhi_order", nullable = false)
     private Integer order;
 
-    @ManyToOne
-    private Project project;
-
     @OneToMany(mappedBy = "sprint")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<TaskList> taskLists = new HashSet<>();
+
+    @ManyToOne
+    private Project project;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -99,19 +99,6 @@ public class Sprint implements Serializable {
         this.order = order;
     }
 
-    public Project getProject() {
-        return project;
-    }
-
-    public Sprint project(Project project) {
-        this.project = project;
-        return this;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
     public Set<TaskList> getTaskLists() {
         return taskLists;
     }
@@ -135,6 +122,19 @@ public class Sprint implements Serializable {
 
     public void setTaskLists(Set<TaskList> taskLists) {
         this.taskLists = taskLists;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public Sprint project(Project project) {
+        this.project = project;
+        return this;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

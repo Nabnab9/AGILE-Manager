@@ -6,12 +6,6 @@
             "relationshipName": "sprint",
             "otherEntityName": "sprint",
             "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "task",
-            "otherEntityName": "task",
-            "otherEntityRelationshipName": "taskList"
         }
     ],
     "fields": [

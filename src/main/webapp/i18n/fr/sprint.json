@@ -19,8 +19,8 @@
             "startDate": "Start Date",
             "endDate": "End Date",
             "order": "Order",
-            "project": "Project",
-            "taskList": "Task List"
+            "taskList": "Task List",
+            "project": "Project"
         }
     }
 }

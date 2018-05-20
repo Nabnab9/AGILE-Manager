@@ -44,17 +44,17 @@ public class Project implements Serializable {
     @Column(name = "description", length = 500)
     private String description;
 
+    @OneToMany(mappedBy = "project")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Sprint> sprints = new HashSet<>();
+
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "project_user_extra",
                joinColumns = @JoinColumn(name="projects_id", referencedColumnName="id"),
                inverseJoinColumns = @JoinColumn(name="user_extras_id", referencedColumnName="id"))
     private Set<UserExtra> userExtras = new HashSet<>();
-
-    @OneToMany(mappedBy = "project")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Sprint> sprints = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -104,31 +104,6 @@ public class Project implements Serializable {
         this.description = description;
     }
 
-    public Set<UserExtra> getUserExtras() {
-        return userExtras;
-    }
-
-    public Project userExtras(Set<UserExtra> userExtras) {
-        this.userExtras = userExtras;
-        return this;
-    }
-
-    public Project addUserExtra(UserExtra userExtra) {
-        this.userExtras.add(userExtra);
-        userExtra.getProjects().add(this);
-        return this;
-    }
-
-    public Project removeUserExtra(UserExtra userExtra) {
-        this.userExtras.remove(userExtra);
-        userExtra.getProjects().remove(this);
-        return this;
-    }
-
-    public void setUserExtras(Set<UserExtra> userExtras) {
-        this.userExtras = userExtras;
-    }
-
     public Set<Sprint> getSprints() {
         return sprints;
     }
@@ -152,6 +127,31 @@ public class Project implements Serializable {
 
     public void setSprints(Set<Sprint> sprints) {
         this.sprints = sprints;
+    }
+
+    public Set<UserExtra> getUserExtras() {
+        return userExtras;
+    }
+
+    public Project userExtras(Set<UserExtra> userExtras) {
+        this.userExtras = userExtras;
+        return this;
+    }
+
+    public Project addUserExtra(UserExtra userExtra) {
+        this.userExtras.add(userExtra);
+        userExtra.getProjects().add(this);
+        return this;
+    }
+
+    public Project removeUserExtra(UserExtra userExtra) {
+        this.userExtras.remove(userExtra);
+        userExtra.getProjects().remove(this);
+        return this;
+    }
+
+    public void setUserExtras(Set<UserExtra> userExtras) {
+        this.userExtras = userExtras;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

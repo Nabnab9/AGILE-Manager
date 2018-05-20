@@ -19,8 +19,8 @@
             "name": "Name",
             "creationDate": "Creation Date",
             "description": "Description",
-            "userExtra": "User Extra",
-            "sprint": "Sprint"
+            "sprint": "Sprint",
+            "userExtra": "User Extra"
         }
     }
 }

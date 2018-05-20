@@ -2,18 +2,18 @@
     "fluentMethods": true,
     "relationships": [
         {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sprint",
+            "otherEntityName": "sprint",
+            "otherEntityRelationshipName": "project"
+        },
+        {
             "relationshipType": "many-to-many",
             "otherEntityRelationshipName": "project",
             "relationshipName": "userExtra",
             "otherEntityName": "userExtra",
             "otherEntityField": "id",
             "ownerSide": true
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "sprint",
-            "otherEntityName": "sprint",
-            "otherEntityRelationshipName": "project"
         }
     ],
     "fields": [

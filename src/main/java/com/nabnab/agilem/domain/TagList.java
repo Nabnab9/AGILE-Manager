@@ -34,13 +34,13 @@ public class TagList implements Serializable {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @ManyToOne
-    private Task task;
-
     @OneToMany(mappedBy = "tagList")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Tag> tags = new HashSet<>();
+
+    @ManyToOne
+    private Task task;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -62,19 +62,6 @@ public class TagList implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Task getTask() {
-        return task;
-    }
-
-    public TagList task(Task task) {
-        this.task = task;
-        return this;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
     }
 
     public Set<Tag> getTags() {
@@ -100,6 +87,19 @@ public class TagList implements Serializable {
 
     public void setTags(Set<Tag> tags) {
         this.tags = tags;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public TagList task(Task task) {
+        this.task = task;
+        return this;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

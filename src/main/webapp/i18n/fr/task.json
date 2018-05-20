@@ -19,11 +19,10 @@
             "title": "Title",
             "description": "Description",
             "order": "Order",
-            "taskList": "Task List",
-            "userExtra": "User Extra",
             "duration": "Duration",
             "tagList": "Tag List",
-            "checkList": "Check List"
+            "checkList": "Check List",
+            "userExtra": "User Extra"
         }
     }
 }

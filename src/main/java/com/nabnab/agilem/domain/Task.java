@@ -43,16 +43,6 @@ public class Task implements Serializable {
     @Column(name = "jhi_order", nullable = false)
     private Integer order;
 
-    @ManyToOne
-    private TaskList taskList;
-
-    @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "task_user_extra",
-               joinColumns = @JoinColumn(name="tasks_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="user_extras_id", referencedColumnName="id"))
-    private Set<UserExtra> userExtras = new HashSet<>();
-
     @OneToMany(mappedBy = "task")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -67,6 +57,13 @@ public class Task implements Serializable {
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<CheckList> checkLists = new HashSet<>();
+
+    @ManyToMany
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "task_user_extra",
+               joinColumns = @JoinColumn(name="tasks_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="user_extras_id", referencedColumnName="id"))
+    private Set<UserExtra> userExtras = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,44 +111,6 @@ public class Task implements Serializable {
 
     public void setOrder(Integer order) {
         this.order = order;
-    }
-
-    public TaskList getTaskList() {
-        return taskList;
-    }
-
-    public Task taskList(TaskList taskList) {
-        this.taskList = taskList;
-        return this;
-    }
-
-    public void setTaskList(TaskList taskList) {
-        this.taskList = taskList;
-    }
-
-    public Set<UserExtra> getUserExtras() {
-        return userExtras;
-    }
-
-    public Task userExtras(Set<UserExtra> userExtras) {
-        this.userExtras = userExtras;
-        return this;
-    }
-
-    public Task addUserExtra(UserExtra userExtra) {
-        this.userExtras.add(userExtra);
-        userExtra.getTasks().add(this);
-        return this;
-    }
-
-    public Task removeUserExtra(UserExtra userExtra) {
-        this.userExtras.remove(userExtra);
-        userExtra.getTasks().remove(this);
-        return this;
-    }
-
-    public void setUserExtras(Set<UserExtra> userExtras) {
-        this.userExtras = userExtras;
     }
 
     public Set<Duration> getDurations() {
@@ -227,6 +186,31 @@ public class Task implements Serializable {
 
     public void setCheckLists(Set<CheckList> checkLists) {
         this.checkLists = checkLists;
+    }
+
+    public Set<UserExtra> getUserExtras() {
+        return userExtras;
+    }
+
+    public Task userExtras(Set<UserExtra> userExtras) {
+        this.userExtras = userExtras;
+        return this;
+    }
+
+    public Task addUserExtra(UserExtra userExtra) {
+        this.userExtras.add(userExtra);
+        userExtra.getTasks().add(this);
+        return this;
+    }
+
+    public Task removeUserExtra(UserExtra userExtra) {
+        this.userExtras.remove(userExtra);
+        userExtra.getTasks().remove(this);
+        return this;
+    }
+
+    public void setUserExtras(Set<UserExtra> userExtras) {
+        this.userExtras = userExtras;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -2,16 +2,16 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "many-to-one",
-            "relationshipName": "task",
-            "otherEntityName": "task",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "tag",
             "otherEntityName": "tag",
             "otherEntityRelationshipName": "tagList"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "task",
+            "otherEntityName": "task",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

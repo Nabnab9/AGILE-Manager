@@ -2,20 +2,6 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "many-to-one",
-            "relationshipName": "taskList",
-            "otherEntityName": "taskList",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "many-to-many",
-            "otherEntityRelationshipName": "task",
-            "relationshipName": "userExtra",
-            "otherEntityName": "userExtra",
-            "otherEntityField": "id",
-            "ownerSide": true
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "duration",
             "otherEntityName": "duration",
@@ -32,6 +18,14 @@
             "relationshipName": "checkList",
             "otherEntityName": "checkList",
             "otherEntityRelationshipName": "task"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "task",
+            "relationshipName": "userExtra",
+            "otherEntityName": "userExtra",
+            "otherEntityField": "id",
+            "ownerSide": true
         }
     ],
     "fields": [

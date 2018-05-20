@@ -16,12 +16,6 @@
         <dd>
             <span>{{task.order}}</span>
         </dd>
-        <dt><span jhiTranslate="agileManagerApp.task.taskList">Task List</span></dt>
-        <dd>
-            <div *ngIf="task.taskList">
-                <a [routerLink]="['/task-list', task.taskList?.id]">{{task.taskList?.id}}</a>
-            </div>
-        </dd>
         <dt><span jhiTranslate="agileManagerApp.task.userExtra">User Extra</span></dt>
         <dd>
             <span *ngFor="let userExtra of task.userExtras; let last = last">

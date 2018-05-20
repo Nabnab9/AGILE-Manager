@@ -2,16 +2,16 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "many-to-one",
-            "relationshipName": "project",
-            "otherEntityName": "project",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "taskList",
             "otherEntityName": "taskList",
             "otherEntityRelationshipName": "sprint"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

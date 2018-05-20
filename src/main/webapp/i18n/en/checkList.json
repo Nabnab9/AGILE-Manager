@@ -17,8 +17,8 @@
                 "title": "Check List"
             },
             "title": "Title",
-            "task": "Task",
-            "checkItem": "Check Item"
+            "checkItem": "Check Item",
+            "task": "Task"
         }
     }
 }

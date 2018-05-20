@@ -17,8 +17,8 @@
                 "title": "Tag List"
             },
             "title": "Title",
-            "task": "Task",
-            "tag": "Tag"
+            "tag": "Tag",
+            "task": "Task"
         }
     }
 }

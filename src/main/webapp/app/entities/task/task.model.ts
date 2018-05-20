@@ -6,11 +6,10 @@ export class Task implements BaseEntity {
         public title?: string,
         public description?: string,
         public order?: number,
-        public taskList?: BaseEntity,
-        public userExtras?: BaseEntity[],
         public durations?: BaseEntity[],
         public tagLists?: BaseEntity[],
         public checkLists?: BaseEntity[],
+        public userExtras?: BaseEntity[],
     ) {
     }
 }
