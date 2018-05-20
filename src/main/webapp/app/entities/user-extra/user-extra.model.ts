@@ -1,6 +1,6 @@
 import { BaseEntity, User } from './../../shared';
-import {Project} from "../project";
-import {Task} from "../task";
+import {Project} from '../project';
+import {Task} from '../task';
 
 export class UserExtra implements BaseEntity {
     constructor(

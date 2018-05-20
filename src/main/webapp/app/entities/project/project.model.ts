@@ -1,5 +1,5 @@
 import { BaseEntity } from './../../shared';
-import {UserExtra} from "../user-extra";
+import {UserExtra} from '../user-extra';
 
 export class Project implements BaseEntity {
     constructor(

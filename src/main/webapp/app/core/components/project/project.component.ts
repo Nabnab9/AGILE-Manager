@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Project} from "../../../entities/project";
+import {Project} from '../../../entities/project';
 
 @Component({
   selector: 'jhi-project',
@@ -8,27 +8,27 @@ import {Project} from "../../../entities/project";
 })
 export class ProjectComponent implements OnInit {
 
-  project : Project;
+  project: Project;
   constructor() { }
 
   ngOnInit() {
       this.project = {
-          "creationDate": "2018-05-20",
-          "description": "string",
-          "id": 0,
-          "name": "string",
-          "userExtras": [
+          'creationDate': '2018-05-20',
+          'description': 'string',
+          'id': 0,
+          'name': 'string',
+          'userExtras': [
               {
-                  "description": "string",
-                  "id": 0,
-                  "user": {
-                      "activated": true,
-                      "email": "string",
-                      "firstName": "string",
-                      "id": 0,
-                      "langKey": "string",
-                      "lastName": "string",
-                      "login": "string",
+                  'description': 'string',
+                  'id': 0,
+                  'user': {
+                      'activated': true,
+                      'email': 'string',
+                      'firstName': 'string',
+                      'id': 0,
+                      'langKey': 'string',
+                      'lastName': 'string',
+                      'login': 'string',
                   }
               }
           ]
